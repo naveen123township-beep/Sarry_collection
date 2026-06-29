@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anghra Saree Collection</title>
+    <!-- Google Fonts for Luxury Feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Color Palette & Reset */
+        :root {
+            --bg-dark: #121212;
+            --bg-card: #1c1c1c;
+            --gold: #d4af37;
+            --gold-hover: #f3e5ab;
+            --text-light: #ffffff;
+            --text-muted: #b3b3b3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Header / Navigation */
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 70px;
+            width: auto;
+            display: block;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Banner */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.95)), url('9219.jpg') no-repeat center center/cover;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* Special Offer Banner */
+        .offer-banner {
+            background: linear-gradient(45deg, #800020, #4a0012); /* Royal Maroon */
+            border: 2px solid var(--gold);
+            padding: 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: -40px auto 60px auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 10;
+        }
+
+        .offer-banner h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .offer-banner p {
+            font-size: 1.1rem;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-bottom: 40px;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 2px;
+            background-color: var(--gold);
+            margin: 10px auto 0 auto;
+        }
+
+        /* Grid Layout for Media & Products */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.1);
+            border-color: var(--gold);
+        }
+
+        .card-media {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+            background-color: #000;
+        }
+
+        .card-info {
+            padding: 20px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .price-tag {
+            font-size: 1.3rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* WhatsApp Button styling */
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: background-color 0.3s, transform 0.2s;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #20ba5a;
+            transform: scale(1.02);
+        }
+
+        .btn-whatsapp svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0b0b0b;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer p strong {
+            color: var(--gold);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .offer-banner h2 { font-size: 1.4rem; }
+            header { flex-direction: column; gap: 15px; }
+            nav a { margin: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Header -->
+    <header>
+        <div class="logo-container">
+            <!-- Utilizing your referenced logo file -->
+            <img src="9219.jpg" alt="Anghra Saree Collection Logo">
+        </div>
+        <nav>
+            <a href="#video-collection">Videos</a>
+            <a href="#photo-collection">New Arrival Gallery</a>
+        </nav>
+    </header>
+
+    <!-- Hero Introduction -->
+    <div class="hero">
+        <h1>ANGHRA SAREE COLLECTION</h1>
+        <p>Experience the ultimate elegance and exquisite craftsmanship. Explore our exclusive drape collection designed to make you shine.</p>
+    </div>
+
+    <!-- Special Offer Banner -->
+    <div class="offer-banner">
+        <h2>✨ Exclusive Festive Offer ✨</h2>
+        <p>Flat ₹1500 Each | <span style="color: #fff; text-decoration: underline; text-underline-offset: 4px;">Buy any 2 and get ₹100 OFF!</span></p>
+    </div>
+
+    <!-- Video Showcase Section -->
+    <section id="video-collection">
+        <h2 class="section-title">Video Lookbook</h2>
+        <div class="grid-container">
+            <!-- Video 1 to 8 loop -->
+            <!-- Script dynamically sets WhatsApp links below, or manually customized per item -->
+            <div class="card">
+                <video class="card-media" controls preload="metadata">
+                    <source src="v1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="card-info">
+                    <h3 class="card-title">Anghra Premium Look 01</h3>
+                    <p class="price-tag">₹1500</p>
+                    <a href="https://wa.me/918660237209?text=Hi%20Anghra%20Saree%20Collection!%20I%20am%20interested%20in%20buying%20Premium%20Saree%20Video%20Look%2001%20for%20Rs.1500." target="_blank" class="btn-whatsapp">
+                        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.981 0c3.184.001 6.177 1.242 8.426 3.496 2.249 2.254 3.487 5.253 3.484 8.437-.006 6.635-5.357 11.985-11.93 11.985-.197 0-.394-.002-.59-.009l-6.166 1.619zm6.737-3.201l.362.215c1.442.856 3.096 1.31 4.793 1.314h.01c5.448 0 9.879-4.416 9.884-9.851.002-2.632-1.023-5.105-2.887-6.974C17.09 3.633 14.621 2.606 12 2.604c-5.455 0-9.887 4.417-9.891 9.855-.001 1.765.463 3.49 1.345 5.021l.236.411-.99 3.615 3.7-.97z"/></svg>
+                        Buy via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <video class="card-media" controls preload="metadata">
+                    <source src="v2.mp4" type="video/mp4">
+                </video>
+                <div class="card-info">
+                    <h3 class="card-title">Anghra Premium Look 02</h3>
+                    <p class="price-tag">₹1500</p>
+                    <a href="https://wa.me/918660237209?text=Hi%20Anghra%20Saree%20Collection!%20I%20am%20interested%20in%20buying%20Premium%20Saree%20Video%20Look%2002%20for%20Rs.1500." target="_blank" class="btn-whatsapp">
+                        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.981 0c3.184.001 6.177 1.242 8.426 3.496 2.249 2.254 3.487 5.253 3.484 8.437-.006 6.635-5.357 11.985-11.93 11.985-.197 0-.394-.002-.59-.009l-6.166 1.619zm6.737-3.201l.362.215c1.442.856 3.096 1.31 4.793 1.314h.01c5.448 0 9.879-4.416 9.884-9.851.002-2.632-1.023-5.105-2.887-6.974C17.09 3.633 14.621 2.606 12 2.604c-5.455 0-9.887 4.417-9.891 9.855-.001 1.765.463 3.49 1.345 5.021l.236.411-.99 3.615 3.7-.97z"/></svg>
+                        Buy via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <video class="card-media" controls preload="metadata">
+                    <source src="v3.mp4" type="video/mp4">
+                </video>
+                <div class="card-info">
+                    <h3 class="card-title">Anghra Premium Look 03</h3>
+                    <p class="price-tag">₹1500</p>
+                    <a href="https://wa.me/918660237209?text=Hi%20Anghra%20Saree%20Collection!%20I%20am%20interested%20in%20buying%20Premium%20Saree%20Video%20Look%2003%20for%20Rs.1500." target="_blank" class="btn-whatsapp">
+                        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.981 0c3.184.001 6.177 1.242 8.426 3.496 2.249 2.254 3.487 5.253 3.484 8.437-.006 6.635-5.357 11.985-11.93 11.985-.197 0-.394-.002-.59-.009l-6.166 1.619zm6.737-3.201l.362.215c1.442.856 3.096 1.31 4.793 1.314h.01c5.448 0 9.879-4.416 9.884-9.851.002-2.632-1.023-5.105-2.887-6.974C17.09 3.633 14.621 2.606 12 2.604c-5.455 0-9.887 4.417-9.891 9.855-.001 1.765.463 3.49 1.345 5.021l.236.411-.99 3.615 3.7-.97z"/></svg>
+                        Buy via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <video class="card-media" controls preload="metadata">
+                    <source src="v4.mp4" type="video/mp4">
+                </video>
+                <div class="card-info">
+                    <h3 class="card-title">Anghra Premium Look 04</h3>
+                    <p class="price-tag">₹1500</p>
+                    <a href="https://wa.me/918660237209?text=Hi%20Anghra%20Saree%20Collection!%20I%20am%20interested%20in%20buying%20Premium%20Saree%20Video%20Look%2004%20for%20Rs.1500." target="_blank" class="btn-whatsapp">
+                        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.981 0c3.184.001 6.177 1.242 8.426 3.496 2.249 2.254 3.487 5.253 3.484 8.437-.006 6.635-5.357 11.985-11.93 11.985-.197 0-.394-.002-.59-.009l-6.166 1.619zm6.737-3.201l.362.215c1.442.856 3.096 1.31 4.793 1.314h.01c5.448 0 9.879-4.416 9.884-9.851.002-2.632-1.023-5.105-2.887-6.974C17.09 3.633 14.621 2.606 12 2.604c-5.455 0-9.887 4.417-9.891 9.855-.001 1.765.463 3.49 1.345 5.021l.236.411-.99 3.615 3.7-.97z"/></svg>
+                        Buy via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <video class="card-media" controls preload="metadata">
+                    <source src="v5.mp4" type="video/mp4">
+                </video>
+                <div class="card-info">
+                    <h3 class="card-title">Anghra Premium Look 05</h3>
+                    <p class="price-tag">₹1500</p>
+                    <a href="https://wa.me/918660237209?text=Hi%20Anghra%20Saree%20Collection!%20I%20am%20interested%20in%20buying%20Premium%20Saree%20Video%20Look%2005%20for%20Rs.1500." target="_blank" class="btn-whatsapp">
+                        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.981 0c3.184.001 6.177 1.242 8.426 3.496 2.249 2.254 3.487 5.253 3.484 8.437-.006 6.635-5.357 11.985-11.93 11.985-.197 0-.394-.002-.59-.009l-6.166 1.619zm6.737-3.201l.362.215c1.442.856 3.096 1.31 4.793 1.314h.01c5.448 0 9.879-4.416 9.884-9.851.002-2.632-1.023-5.105-2.887-6.974C17.09 3.633 14.621 2.606 12 2.604c-5.455 0-9.887 4.417-9.891 9.855-.001 1.765.463 3.49 1.345 5.021l.236.411-.99 3.615 3.7-.97z"/></svg>
+                        Buy via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <video class="card-media" controls preload="metadata">
+                    <source src="v6.mp4" type="video/mp4">
+                </video>
+                <div class="card-info">
+                    <h3 class="card-title">Anghra Premium Look 06</h3>
+                    <p class="price-tag">₹1500</p>
+                    <a href="https://wa.me/918660237209?text=Hi%20Anghra%20Saree%20Collection!%20I%20am%20interested%20in%20buying%20Premium%20Saree%20Video%20Look%2006%20for%20Rs.1500." target="_blank" class="btn-whatsapp">
+                        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.981 0c3.184.001 6.177 1.242 8.426 3.496 2.249 2.254 3.487 5.253 3.484 8.437-.006 6.635-5.357 11.985-11.93 11.985-.197 0-.394-.002-.59-.009l-6.166 1.619zm6.737-3.201l.362.215c1.442.856 3.096 1.31 4.793 1.314h.01c5.448 0 9.879-4.416 9.884-9.851.002-2.632-1.023-5.105-2.887-6.974C17.09 3.633 14.621 2.606 12 2.604c-5.455 0-9.887 4.417-9.891 9.855-.001 1.765.463 3.49 1.345 5.021l.236.411-.99 3.615 3.7-.97z"/></svg>
+                        Buy via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <video class="card-media" controls preload="metadata">
+                    <source src="v7.mp4" type="video/mp4">
+                </video>
+                <div class="card-info">
+                    <h3 class="card-title">Anghra Premium Look 07</h3>
+                    <p class="price-tag">₹1500</p>
+                    <a href="https://wa.me/918660237209?text=Hi%20Anghra%20Saree%20Collection!%20I%20am%20interested%20in%20buying%20Premium%20Saree%20Video%20Look%2007%20for%20Rs.1500." target="_blank" class="btn-whatsapp">
+                        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.981 0c3.184.001 6.177 1.242 8.426 3.496 2.249 2.254 3.487 5.253 3.484 8.437-.006 6.635-5.357 11.985-11.93 11.985-.197 0-.394-.002-.59-.009l-6.166 1.619zm6.737-3.201l.362.215c1.442.856 3.096 1.31 4.793 1.314h.01c5.448 0 9.879-4.416 9.884-9.851.002-2.632-1.023-5.105-2.887-6.974C17.09 3.633 14.621 2.606 12 2.604c-5.455 0-9.887 4.417-9.891 9.855-.001 1.765.463 3.49 1.345 5.021l.236.411-.99 3.615 3.7-.97z"/></svg>
+                        Buy via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <video class="card-media" controls preload="metadata">
+                    <source src="v8.mp4" type="video/mp4">
+                </video>
+                <div class="card-info">
+                    <h3 class="card-title">Anghra Premium Look 08</h3>
+                    <p class="price-tag">₹1500</p>
+                    <a href="https://wa.me/918660237209?text=Hi%20Anghra%20Saree%20Collection!%20I%20am%20interested%20in%20buying%20Premium%20Saree%20Video%20Look%2008%20for%20Rs.1500." target="_blank" class="btn-whatsapp">
+                        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.981 0c3.184.001 6.177 1.242 8.426 3.496 2.249 2.254 3.487 5.253 3.484 8.437-.006 6.635-5.357 11.985-11.93 11.985-.197 0-.394-.002-.59-.009l-6.166 1.619zm6.737-3.201l.362.215c1.442.856 3.096 1.31 4.793 1.314h.01c5.448 0 9.879-4.416 9.884-9.851.002-2.632-1.023-5.105-2.887-6.974C17.09 3.633 14.621 2.606 12 2.604c-5.455 0-9.887 4.417-9.891 9.855-.001 1.765.463 3.49 1.345 5.021l.236.411-.99 3.615 3.7-.97z"/></svg>
+                        Buy via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr style="border: 0; border-top: 1px solid rgba(212,175,55,0.1); width: 90%; margin: 0 auto;">
+
+    <!-- Photo Collection Section -->
+    <section id="photo-collection">
+        <h2 class="section-title">Our New Arrivals</h2>
+        <div class="grid-container">
+            <!-- Photo 1 to 8 loop -->
+            <div class="card">
+                <img src="p1.jpg" alt="Anghra Saree Collection Design 01" class="card-media">
+                <div class="card-info">
+                    <h3 class="card-title">Anghra Elegant Collection 01</h3>
+                    <p class="price-tag">₹1500</p>
+                    <a href="https://wa.me/918660237209?text=Hi%20Anghra%20Saree%20Collection!%20I%20am%20interested%20in%20buying%20Saree%20Design%2001%20for%20Rs.1500." target="_blank" class="btn-whatsapp">
+                        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.981 0c3.184.001 6.177 1.242 8.426 3.496 2.249 2.254 3.487 5.253 3.484 8.437-.006 6.635-5.357 11.985-11.93 11.985-.197 0-.394-.002-.59-.009l-6.166 1.619zm6.737-3.201l.362.215c1.442.856 3.096 1.31 4.793 1.314h.01c5.448 0 9.879-4.416 9.884-9.851.002-2.632-1.023-5.105-2.887-6.974C17.09 3.633 14.621 2.606 12 2.604c-5.455 0-9.887 4.417-9.891 9.855-.001 1.765.463 3.49 1.345 5.021l.236.411-.99 3.615 3.7-.97z"/></svg>
+                        Buy via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="p2.jpg" alt="Anghra Saree Collection Design 02" class="card-media">
+                <div class="card-info">
+                    <h3 class="card-title">Anghra Elegant Collection 02</h3>
+                    <p class="price-tag">₹1500</p>
+                    <a href="https://wa.me/918660237209?text=Hi%20Anghra%20Saree%20Collection!%20I%20am%20interested%20in%20buying%20Saree%20Design%2002%20for%20Rs.1500." target="_blank" class="btn-whatsapp">
+                        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.981 0c3.184.001 6.177 1.242 8.426 3.496 2.249 2.254 3.487 5.253 3.484 8.437-.006 6.635-5.357 11.985-11.93 11.985-.197 0-.394-.002-.59-.009l-6.166 1.619zm6.737-3.201l.362.215c1.442.856 3.096 1.31 4.793 1.314h.01c5.448 0 9.879-4.416 9.884-9.851.002-2.632-1.023-5.105-2.887-6.974C17.09 3.633 14.621 2.606 12 2.604c-5.455 0-9.887 4.417-9.891 9.855-.001 1.765.463 3.49 1.345 5.021l.236.411-.99 3.615 3.7-.97z"/></svg>
+                        Buy via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="p3.jpg" alt="Anghra Saree Collection Design 03" class="card-media">
+                <div class="card-info">
+                    <h3 class="card-title">Anghra Elegant Collection 03</h3>
+                    <p class="price-tag">₹1500</p>
+                    <a href="https://wa.me/918660237209?text=Hi%20Anghra%20Saree%20Collection!%20I%20am%20interested%20in%20buying%20Saree%20Design%2003%20for%20Rs.1500." target="_blank" class="btn-whatsapp">
+                        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.981 0c3.184.001 6.177 1.242 8.426 3.496 2.249 2.254 3.487 5.253 3.484 8.437-.006 6.635-5.357 11.985-11.93 11.985-.197 0-.394-.002-.59-.009l-6.166 1.619zm6.737-3.201l.362.215c1.442.856 3.096 1.31 4.793 1.314h.01c5.448 0 9.879-4.416 9.884-9.851.002-2.632-1.023-5.105-2.887-6.974C17.09 3.633 14.621 2.606 12 2.604c-5.455 0-9.887 4.417-9.891 9.855-.001 1.765.463 3.49 1.345 5.021l.236.411-.99 3.615 3.7-.97z"/></svg>
+                        Buy via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="p4.jpg" alt="Anghra Saree Collection Design 04" class="card-media">
+                <div class="card-info">
+                    <h3 class="card-title">Anghra Elegant Collection 04</h3>
+                    <p class="price-tag">₹1500</p>
+                    <a href="https://wa.me/918660237209?text=Hi%20Anghra%20Saree%20Collection!%20I%20am%20interested%20in%20buying%20Saree%20Design%2004%20for%20Rs.1500." target="_blank" class="btn-whatsapp">
+                        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.981 0c3.184.001 6.177 1.242 8.426 3.496 2.249 2.254 3.487 5.253 3.484 8.437-.006 6.635-5.357 11.985-11.93 11.985-.197 0-.394-.002-.59-.009l-6.166 1.619zm6.737-3.201l.362.215c1.442.856 3.096 1.31 4.793 1.314h.01c5.448 0 9.879-4.416 9.884-9.851.002-2.632-1.023-5.105-2.887-6.974C17.09 3.633 14.621 2.606 12 2.604c-5.455 0-9.887 4.417-9.891 9.855-.001 1.765.463 3.49 1.345 5.021l.236.411-.99 3.615 3.7-.97z"/></svg>
+                        Buy via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="p5.jpg" alt="Anghra Saree Collection Design 05" class="card-media">
+                <div class="card-info">
+                    <h3 class="card-title">Anghra Elegant Collection 05</h3>
+                    <p class="price-tag">₹1500</p>
+                    <a href="https://wa.me/918660237209?text=Hi%20Anghra%20Saree%20Collection!%20I%20am%20interested%20in%20buying%20Saree%20Design%2005%20for%20Rs.1500." target="_blank" class="btn-whatsapp">
+                        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.981 0c3.184.001 6.177 1.242 8.426 3.496 2.249 2.254 3.487 5.253 3.484 8.437-.006 6.635-5.357 11.985-11.93 11.985-.197 0-.394-.002-.59-.009l-6.166 1.619zm6.737-3.201l.362.215c1.442.856 3.096 1.31 4.793 1.314h.01c5.448 0 9.879-4.416 9.884-9.851.002-2.632-1.023-5.105-2.887-6.974C17.09 3.633 14.621 2.606 12 2.604c-5.455 0-9.887 4.417-9.891 9.855-.001 1.765.463 3.49 1.345 5.021l.236.411-.99 3.615 3.7-.97z"/></svg>
+                        Buy via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="p6.jpg" alt="Anghra Saree Collection Design 06" class="card-media">
+                <div class="card-info">
+                    <h3 class="card-title">Anghra Elegant Collection 06</h3>
+                    <p class="price-tag">₹1500</p>
+                    <a href="https://wa.me/918660237209?text=Hi%20Anghra%20Saree%20Collection!%20I%20am%20interested%20in%20buying%20Saree%20Design%2006%20for%20Rs.1500." target="_blank" class="btn-whatsapp">
+                        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.981 0c3.184.001 6.177 1.242 8.426 3.496 2.249 2.254 3.487 5.253 3.484 8.437-.006 6.635-5.357 11.985-11.93 11.985-.197 0-.394-.002-.59-.009l-6.166 1.619zm6.737-3.201l.362.215c1.442.856 3.096 1.31 4.793 1.314h.01c5.448 0 9.879-4.416 9.884-9.851.002-2.632-1.023-5.105-2.887-6.974C17.09 3.633 14.621 2.606 12 2.604c-5.455 0-9.887 4.417-9.891 9.855-.001 1.765.463 3.49 1.345 5.021l.236.411-.99 3.615 3.7-.97z"/></svg>
+                        Buy via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="p7.jpg" alt="Anghra Saree Collection Design 07" class="card-media">
+                <div class="card-info">
+                    <h3 class="card-title">Anghra Elegant Collection 07</h3>
+                    <p class="price-tag">₹1500</p>
+                    <a href="https://wa.me/918660237209?text=Hi%20Anghra%20Saree%20Collection!%20I%20am%20interested%20in%20buying%20Saree%20Design%2007%20for%20Rs.1500." target="_blank" class="btn-whatsapp">
+                        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.981 0c3.184.001 6.177 1.242 8.426 3.496 2.249 2.254 3.487 5.253 3.484 8.437-.006 6.635-5.357 11.985-11.93 11.985-.197 0-.394-.002-.59-.009l-6.166 1.619zm6.737-3.201l.362.215c1.442.856 3.096 1.31 4.793 1.314h.01c5.448 0 9.879-4.416 9.884-9.851.002-2.632-1.023-5.105-2.887-6.974C17.09 3.633 14.621 2.606 12 2.604c-5.455 0-9.887 4.417-9.891 9.855-.001 1.765.463 3.49 1.345 5.021l.236.411-.99 3.615 3.7-.97z"/></svg>
+                        Buy via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="p8.jpg" alt="Anghra Saree Collection Design 08" class="card-media">
+                <div class="card-info">
+                    <h3 class="card-title">Anghra Elegant Collection 08</h3>
+                    <p class="price-tag">₹1500</p>
+                    <a href="https://wa.me/918660237209?text=Hi%20Anghra%20Saree%20Collection!%20I%20am%20interested%20in%20buying%20Saree%20Design%2008%20for%20Rs.1500." target="_blank" class="btn-whatsapp">
+                        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.411 0 11.981 0c3.184.001 6.177 1.242 8.426 3.496 2.249 2.254 3.487 5.253 3.484 8.437-.006 6.635-5.357 11.985-11.93 11.985-.197 0-.394-.002-.59-.009l-6.166 1.619zm6.737-3.201l.362.215c1.442.856 3.096 1.31 4.793 1.314h.01c5.448 0 9.879-4.416 9.884-9.851.002-2.632-1.023-5.105-2.887-6.974C17.09 3.633 14.621 2.606 12 2.604c-5.455 0-9.887 4.417-9.891 9.855-.001 1.765.463 3.49 1.345 5.021l.236.411-.99 3.615 3.7-.97z"/></svg>
+                        Buy via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <strong>Anghra Saree Collection</strong>. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 5px;">Designed to bring elegance straight to your wardrobe.</p>
+    </footer>
+
+</body>
+</html>
